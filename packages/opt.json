@@ -1,0 +1,18 @@
+{
+  "pins": {
+    "termite.nvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ruicsh",
+        "repo": "termite.nvim"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "60184a1eaec3bf3f8f404eed4ee69b30f38cfe54",
+      "url": "https://github.com/ruicsh/termite.nvim/archive/60184a1eaec3bf3f8f404eed4ee69b30f38cfe54.tar.gz",
+      "hash": "sha256-qbdrY9of4GZEWhApKnb90CRwZQKRV5ZyGhQsxGfY+U4="
+    }
+  },
+  "version": 7
+}
