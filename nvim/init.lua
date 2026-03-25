@@ -1,2 +1,2 @@
 require("config")
-require("lz.n").load("plugins")
+require("lze").load("plugins")
