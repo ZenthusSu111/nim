@@ -14,5 +14,8 @@ return {
 			})
 		end,
 	},
+	{
+		"live-server.nvim",
+		cmd = "LiveServerStart",
+	},
 }
-
