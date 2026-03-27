@@ -1,6 +1,7 @@
 return {
 	{ import = "plugins.mini.mini-ai" },
 	{ import = "plugins.mini.mini-cursorword" },
+	{ import = "plugins.mini.mini-diff" },
 	{ import = "plugins.mini.mini-hipatterns" },
 	{ import = "plugins.mini.mini-icons" },
 	{ import = "plugins.mini.mini-indentscope" },

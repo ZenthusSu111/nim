@@ -13,6 +13,7 @@ with pkgs.vimPlugins;
   mini-surround
   mini-move
   mini-jump2d
+  mini-diff
 
   # git
   neogit
