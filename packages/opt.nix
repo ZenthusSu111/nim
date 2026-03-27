@@ -1,4 +1,5 @@
-{pkgs}: with pkgs.vimPlugins;
+{ pkgs }:
+with pkgs.vimPlugins;
 [
   nvim-treesitter.withAllGrammars
 
@@ -11,7 +12,7 @@
   mini-tabline
   mini-surround
   mini-move
-
+  mini-jump2d
 
   # completion
   blink-cmp
@@ -23,15 +24,12 @@
   # formatter
   conform-nvim
 
-
   fzf-lua
-
 
   # enhanced
   fidget-nvim
   tiny-inline-diagnostic-nvim
   codediff-nvim
-
 
   # lsp
   rustaceanvim

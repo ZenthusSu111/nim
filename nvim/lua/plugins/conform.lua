@@ -10,6 +10,9 @@ return {
 				nix = { "nixfmt" },
 				rust = { "rustfmt", lsp_format = "fallback" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettier" },
+				css = { "prettier" },
+				markdown = { "prettier" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
