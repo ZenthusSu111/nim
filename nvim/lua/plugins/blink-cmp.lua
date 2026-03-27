@@ -2,6 +2,7 @@ return {
 	{
 		"blink.cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
+		dep_of = { "markview.nvim" },
 		after = function()
 			require("blink.cmp").setup({
 				cmdline = {

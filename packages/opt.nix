@@ -14,6 +14,9 @@ with pkgs.vimPlugins;
   mini-move
   mini-jump2d
 
+  # git
+  neogit
+
   # completion
   blink-cmp
   # blink enhanced
@@ -39,4 +42,7 @@ with pkgs.vimPlugins;
   tokyonight-nvim
   lualine-nvim
   nvim-tree-lua
+
+  # note
+  markview-nvim
 ]
