@@ -34,6 +34,7 @@ with pkgs.vimPlugins;
   fidget-nvim
   tiny-inline-diagnostic-nvim
   codediff-nvim
+  avante-nvim
 
   # lsp
   rustaceanvim

@@ -1,43 +1,63 @@
-{pkgs, mnw, inputs, ...}:
+{
+  pkgs,
+  mnw,
+  inputs,
+  ...
+}:
 let
-  npinsToPlugins = input: builtins.mapAttrs (_: v: v {inherit pkgs;}) (import ./npins.nix {inherit input;});
+  npinsToPlugins =
+    input: builtins.mapAttrs (_: v: v { inherit pkgs; }) (import ./npins.nix { inherit input; });
+  secretsFile = ./secrets/api.yaml;
 in
-  mnw.lib.wrap pkgs {
+mnw.lib.wrap pkgs {
 
-    aliases = [
-      "vi"
-    ];
-    appName = "nim";
-    neovim = pkgs.neovim-unwrapped;
+  aliases = [
+    "vi"
+  ];
+  appName = "nim";
+  neovim = pkgs.neovim-unwrapped;
 
-    luaFiles = [
-      ./nvim/init.lua
-    ];
+  luaFiles = [
+    ./nvim/init.lua
+  ];
 
-    #rapperArgs = [
-    #  "--run"
-    #  "eval \"$(devenv direnvrc)\""
-    #];
-    wrapperArgs = [
-        "--run" ''
-        # 檢查當前目錄是否有 .envrc，有的話就加載環境
-        if [ -f .envrc ] && command -v direnv >/dev/null; then
-          echo "Devenv: Auto-loading environment via direnv..."
-          eval "$(direnv export bash)"
-        fi
-      ''
-    ];
+  #rapperArgs = [
+  #  "--run"
+  #  "eval \"$(devenv direnvrc)\""
+  #];
+  wrapperArgs = [
+    "--set"
+    "SOPS_AGE_KEY_FILE"
+    "/etc/age-key.txt"
+    "--run"
+    ''
+      if [ -f "${secretsFile}" ]; then
+        _sops_bin="${pkgs.sops}/bin/sops"
+          if "$_sops_bin" --decrypt "${secretsFile}" > /dev/null 2>&1; then
+            eval "$("$_sops_bin" --decrypt --output-type dotenv "${secretsFile}" \
+              | sed 's/^/export /')"
+          else
+            echo "nim: secrets 解密失敗，API keys 未載入" >&2
+              fi
+              fi
 
-    plugins = {
-      dev.nim = {
-        pure = ./nvim;
-        impure = "/home/iansu/nim/nvim";
-      };
+              if [ -f .envrc ] && command -v direnv >/dev/null; then
+                echo "Devenv: Auto-loading environment via direnv..."
+                  eval "$(direnv export bash)"
+                  fi
+    ''
+  ];
 
-      start = import ./packages/start.nix {inherit pkgs;};
-      #startAttrs = npinsToPlugins ./packages/start.json;
-      opt = import ./packages/opt.nix {inherit pkgs;};
-      optAttrs = npinsToPlugins ./packages/opt.json;
+  plugins = {
+    dev.nim = {
+      pure = ./nvim;
+      impure = "/home/iansu/nim/nvim";
     };
-    extraBinPath = import ./packages/binaries.nix {inherit pkgs;};
-  }
+
+    start = import ./packages/start.nix { inherit pkgs; };
+    #startAttrs = npinsToPlugins ./packages/start.json;
+    opt = import ./packages/opt.nix { inherit pkgs; };
+    optAttrs = npinsToPlugins ./packages/opt.json;
+  };
+  extraBinPath = import ./packages/binaries.nix { inherit pkgs; };
+}

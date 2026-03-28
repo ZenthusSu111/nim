@@ -1,5 +1,6 @@
 return {
 	{ import = "plugins.mini" },
+	{ import = "plugins.ai" },
 	{ import = "plugins.blink-cmp" },
 	{ import = "plugins.conform" },
 	{ import = "plugins.fzf" },
