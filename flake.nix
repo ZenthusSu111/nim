@@ -24,7 +24,7 @@
       packages = forAllSystems (
         system: pkgs: {
           default = import ./default.nix { inherit mnw pkgs inputs; };
-          dev = self.packages.${system}.default.devMode;
+          nim = self.packages.${system}.default.devMode;
         }
       );
 
