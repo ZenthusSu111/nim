@@ -25,6 +25,7 @@
         system: pkgs: {
           default = import ./default.nix { inherit mnw pkgs inputs; };
           nim = self.packages.${system}.default.devMode;
+          dev = self.packages.${system}.default.devMode;
         }
       );
 

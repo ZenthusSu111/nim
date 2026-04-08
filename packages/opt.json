@@ -25,6 +25,19 @@
       "revision": "b69ceae07e862f408c2c2511605f13cbf511ec62",
       "url": "https://github.com/barrettruth/live-server.nvim/archive/b69ceae07e862f408c2c2511605f13cbf511ec62.tar.gz",
       "hash": "sha256-qi1G6sA05SPNja7rWaN3sm/YHO8uPfTcTm8e4eXXhNY="
+    },
+    "neocodeium": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "monkoose",
+        "repo": "neocodeium"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "bfe790d78e66adaa95cb50a8c75c64a752336e9c",
+      "url": "https://github.com/monkoose/neocodeium/archive/bfe790d78e66adaa95cb50a8c75c64a752336e9c.tar.gz",
+      "hash": "sha256-SBUVCxJufLzWO/9ZOUOnpDBC2ez6DrvixgedMlXqKxI="
     }
   },
   "version": 7
